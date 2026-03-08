@@ -23,7 +23,8 @@ class Reporter:
         raw_output: str,
         parsed: ParsedOutput,
         score: ScoringResult,
-        notifications_count: int
+        notifications_count: int,
+        response_time: float = 0.0
     ):
         """保存单次迭代结果"""
         timestamp = datetime.now().isoformat()
@@ -34,6 +35,7 @@ class Reporter:
             "iteration": iteration,
             "score": score.total_score,
             "passed": score.passed,
+            "response_time": response_time,
             "summary": score.summary,
             "dimensions": {
                 name: {

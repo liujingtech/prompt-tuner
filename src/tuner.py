@@ -227,7 +227,8 @@ class PromptTuner:
                 raw_output=response.content,
                 parsed=parsed,
                 score=score_result,
-                notifications_count=len(notifications)
+                notifications_count=len(notifications),
+                response_time=response.total_time or 0.0
             )
 
             # 检查收敛（仅记录，不提前退出）
